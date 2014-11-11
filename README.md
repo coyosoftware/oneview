@@ -52,7 +52,7 @@ All methods return an Oneview::Client::Response object. This objects contains th
 ```ruby
 	response = Oneview.new(YOUR_ACCESS_TOKEN).contacts.create(contact_entity)
 	
-	response.code 			# Contains the status code of the request
+	response.status			# Contains the status code of the request
 	response.payload		# Contains the return data (JSON) of the request
 	response.raw_response	# Contains the HTTParty response object
 ```

@@ -1,6 +1,6 @@
 # Oneview
 
-[![Build Status](https://travis-ci.org/coyosoftware/oneview.svg?branch=master)](https://travis-ci.org/coyosoftware/oneview) [![Gem Version](https://badge.fury.io/rb/oneview.png)](http://badge.fury.io/rb/oneview) [![Test Coverage](https://codeclimate.com/github/coyosoftware/oneview/badges/coverage.svg)](https://codeclimate.com/github/coyosoftware/oneview) [![Code Climate](https://codeclimate.com/github/coyosoftware/oneview/badges/gpa.svg)](https://codeclimate.com/github/coyosoftware/oneview)
+[![Build Status](https://travis-ci.org/coyosoftware/oneview.svg?branch=master)](https://travis-ci.org/coyosoftware/oneview) [![Gem Version](https://badge.fury.io/rb/oneview.svg)](http://badge.fury.io/rb/oneview) [![Test Coverage](https://codeclimate.com/github/coyosoftware/oneview/badges/coverage.svg)](https://codeclimate.com/github/coyosoftware/oneview) [![Code Climate](https://codeclimate.com/github/coyosoftware/oneview/badges/gpa.svg)](https://codeclimate.com/github/coyosoftware/oneview)
 
 This gem simplifies the usage of [Oneview](http://www.oneview.com.br/) API
 

@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.3"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0.4"
   spec.add_development_dependency "rspec", "~> 3.1"
+  spec.add_development_dependency "webmock", "~> 1.20"
   spec.add_development_dependency "debugger", "~> 1.6"
 end

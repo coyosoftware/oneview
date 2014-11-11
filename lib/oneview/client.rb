@@ -20,16 +20,31 @@ module Oneview
       @access_token = access_token
     end
     
-    def header
-      {"Content-Type" => "application/json", "Accept" => "application/json"}
-    end
-    
-    def build_body(parameters)
-      parameters.merge(:access_token => @access_token).to_json
-    end
-    
     def contacts
       Oneview::Api::Contacts.new(@access_token)
+    end
+    
+    protected
+      def header
+        {"Content-Type" => "application/json", "Accept" => "application/json"}
+      end
+      
+      def build_body(parameters)
+        parameters.merge(:access_token => @access_token).to_json
+      end
+      
+      def parse_response(response)
+        return Oneview::Client::Response.new(response)
+      end
+    
+    class Response
+      attr_accessor :status, :payload, :raw_response
+      
+      def initialize(response)
+        @status = response.code
+        @payload = response.parsed_response
+        @raw_response = response
+      end
     end
   end
 end

@@ -6,8 +6,8 @@ module Oneview
       base_uri "http://www.oneview.com.br/api/contacts"
       
       def create(data)
-        return self.class.post("/", :body => build_body(data), :headers => header) if data.is_a?(Hash)
-        return self.class.post("/", :body => build_body(data.as_parameter), :headers => header) if data.is_a?(Oneview::Entity::Contact)
+        return parse_response(self.class.post("/", :body => build_body(data), :headers => header)) if data.is_a?(Hash)
+        return parse_response(self.class.post("/", :body => build_body(data.as_parameter), :headers => header)) if data.is_a?(Oneview::Entity::Contact)
         raise ArgumentError
       end
       alias :new :create

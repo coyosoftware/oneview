@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Oneview::VERSION
   spec.authors       = ["Gustavo Berdugo"]
   spec.email         = ["gberdugo@gmail.com"]
-  spec.summary       = %q{Oneview API consumer}
-  spec.description   = %q{Write a longer description. Optional.}
+  spec.summary       = %q{This gem provides integration with Oneview APIs (http://www.oneview.com.br/)}
+  spec.description   = %q{The goal of this gem is to simplify the access to Oneview API (http://www.oneview.com.br/), for more information about this API, visit: http://coyosoftware.github.io/}
   spec.homepage      = "https://github.com/coyosoftware/oneview"
   spec.license       = "MIT"
 
@@ -25,5 +25,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0.4"
   spec.add_development_dependency "rspec", "~> 3.1"
   spec.add_development_dependency "webmock", "~> 1.20"
-  spec.add_development_dependency "debugger", "~> 1.6"
 end

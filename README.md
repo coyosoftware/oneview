@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/coyosoftware/oneview.svg?branch=master)](https://travis-ci.org/coyosoftware/oneview) [![Gem Version](https://badge.fury.io/rb/oneview.png)](http://badge.fury.io/rb/oneview) [![Test Coverage](https://codeclimate.com/github/coyosoftware/oneview/badges/coverage.svg)](https://codeclimate.com/github/coyosoftware/oneview) [![Code Climate](https://codeclimate.com/github/coyosoftware/oneview/badges/gpa.svg)](https://codeclimate.com/github/coyosoftware/oneview)
 
-Add dynamic routes based on model attributes
+This gem simplifies the usage of [Oneview](http://www.oneview.com.br/) API
+
+For more information regarding the API, visit the [documentation]
 
 ## Installation
 
@@ -20,33 +22,40 @@ Or install it yourself as:
 
 ## Usage
 
-Suppose you want to create a friendly URL for a resource based on fields of an example model:
-```ruby
-class Example < ActiveRecord::Base
-	# This model has a field called 'url'
-end
-```	
-To create a route to a resource using the field 'url' as URL, add the following line to your routes.rb:
-```ruby
-DynamicRouter::Router.has_dynamic_route_for Example, Proc.new {|example| "/#{example.url}"}, "dummy#dummy_method"
-```
-	
-After this when you create models like:
-```ruby
-Example.create!(:url => "abc")
-Example.create!(:url => "123")
-```	
-The dynamic router will create the routes "/abc" and "/123" mapping to DummyController#dummy_method
+Create a new instance of Oneview class passing your access token:
 
-You can pass the desired HTTP method also:
-```ruby	
-DynamicRouter::Router.has_dynamic_route_for Example, Proc.new {|example| "/#{example.url}"}, "dummy#dummy_method", :method => :post
-```	
-And can specify default values to be passed, like:
 ```ruby
-DynamicRouter::Router.has_dynamic_route_for Example, Proc.new {|example| "/#{example.url}"}, "dummy#dummy_method", :defaults => {:some_value => Proc.new {|example| example.default_field}}
+	client = Oneview.new(YOUR_ACCESS_TOKEN)
 ```	
-The dynamic router will map ALL records of the model on the startup and will create an after_save hook to create new routes as the models are created.
+
+With the client instance, you can access the following resources:
+
+* Contacts (client.contacts) **Only creation**
+* Sms Sending (client.sms) **Not Implemented Yet**
+* Email Sending (client.email) **Not Implemented Yet**
+
+## Using the resources
+### Creating new records
+All resources implement a **create** method.
+
+It can accept a hash with the parameters as described in the API [documentation] or an Entity object that reflects the API fields.
+
+Currently the following entities are implemented:
+
+* [Contact](lib/oneview/entity/contact.rb)
+* [Phone](lib/oneview/entity/phone.rb)
+* [Dynamic Field](lib/oneview/entity/dynamic_field.rb)
+
+### Reading the response
+All methods return an Oneview::Client::Response object. This objects contains the following attributes:
+
+```ruby
+	response = Oneview.new(YOUR_ACCESS_TOKEN).contacts.create(contact_entity)
+	
+	response.code 			# Contains the status code of the request
+	response.payload		# Contains the return data (JSON) of the request
+	response.raw_response	# Contains the HTTParty response object
+```
 
 ## Contributing
 
@@ -55,3 +64,5 @@ The dynamic router will map ALL records of the model on the startup and will cre
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+[documentation]: http://coyosoftware.github.io/

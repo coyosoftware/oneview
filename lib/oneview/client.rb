@@ -11,7 +11,7 @@ module Oneview
     extend Oneview::ClassMethods
     include HTTParty
     
-    require_all 'oneview/api', 'contacts'
+    require_all 'oneview/api', 'contacts', 'emails'
     
     attr_accessor :access_token
     

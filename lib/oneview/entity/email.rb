@@ -1,9 +1,7 @@
 module Oneview
   module Entity
     class Email < Base
-      attr_accessor :id, :from, :to, :body, :subject
-      
-      
+      attr_accessor :from, :to, :body, :subject, :schedule
     end
   end
 end

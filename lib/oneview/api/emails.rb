@@ -14,7 +14,7 @@ module Oneview
       
       private
         def build_body(parameters)
-          super({:email => parameters})
+          super(parameters)
         end
     end
   end

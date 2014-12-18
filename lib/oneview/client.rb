@@ -24,6 +24,10 @@ module Oneview
       Oneview::Api::Contacts.new(@access_token)
     end
     
+    def emails
+      Oneview::Api::Emails.new(@access_token)
+    end
+    
     protected
       def header
         {"Content-Type" => "application/json", "Accept" => "application/json"}

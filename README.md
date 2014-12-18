@@ -32,7 +32,7 @@ With the client instance, you can access the following resources:
 
 * Contacts (client.contacts) **Only creation**
 * Sms Sending (client.sms) **Not Implemented Yet**
-* Email Sending (client.email) **Not Implemented Yet**
+* Email Sending (client.email)
 
 ## Using the resources
 ### Creating new records
@@ -45,6 +45,7 @@ Currently the following entities are implemented:
 * [Contact](lib/oneview/entity/contact.rb)
 * [Phone](lib/oneview/entity/phone.rb)
 * [Dynamic Field](lib/oneview/entity/dynamic_field.rb)
+* [Email](lib/oneview/entity/email.rb)
 
 ### Reading the response
 All methods return an Oneview::Client::Response object. This objects contains the following attributes:

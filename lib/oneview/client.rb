@@ -11,7 +11,7 @@ module Oneview
     extend Oneview::ClassMethods
     include HTTParty
     
-    require_all 'oneview/api', 'contacts', 'emails'
+    require_all 'oneview/api', 'contacts', 'emails', 'sms'
     
     attr_accessor :access_token
     
@@ -26,6 +26,10 @@ module Oneview
     
     def emails
       Oneview::Api::Emails.new(@access_token)
+    end
+
+    def sms
+      Oneview::Api::Sms.new(@access_token)
     end
     
     protected

@@ -2,12 +2,12 @@ require 'spec_helper'
 
 RSpec.describe Oneview::Api::Sms do
   describe "creating" do
-    let(:sms_params) {{:to => "55129985587", :message => "message", :schedule => "14/05/2014 15:30", :access_token => "abc"}}
+    let(:sms_params) {{:numbers => "55129985587", :message => "message", :schedule => "14/05/2014 15:30", :access_token => "abc"}}
     let(:header) {{"Content-Type" => "application/json", "Accept" => "application/json"}}
     
     before(:each) do
       @sms = Oneview::Entity::Sms.new
-      @sms.to = "55129985587"
+      @sms.numbers = "55129985587"
       @sms.message = "message"
       @sms.schedule = "14/05/2014 15:30"
       

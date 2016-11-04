@@ -30,7 +30,7 @@ Create a new instance of Oneview class passing your access token:
 
 With the client instance, you can access the following resources:
 
-* Contacts (client.contacts) **Only creation**
+* Contacts (client.contacts) **Create and Update**
 * Sms Sending (client.sms)
 * Email Sending (client.email)
 
@@ -47,6 +47,13 @@ Currently the following entities are implemented:
 * [Dynamic Field](lib/oneview/entity/dynamic_field.rb)
 * [Email](lib/oneview/entity/email.rb)
 * [SMS](lib/oneview/entity/sms.rb)
+
+### Updating records
+It can accept a hash with the parameters as described in the API [documentation] or an Entity object that reflects the API fields.
+
+Currently the following entities are implemented:
+
+* [Contact](lib/oneview/entity/contact.rb)
 
 ### Reading the response
 All methods return an Oneview::Client::Response object. This objects contains the following attributes:

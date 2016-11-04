@@ -11,7 +11,7 @@ module Oneview
         raise ArgumentError
       end
       alias :new :create
-      
+
       def update(id, data)
         return parse_response(self.class.patch("/" + id, :body => build_body(data), :headers => header)) if data.is_a?(Hash)
         return parse_response(self.class.patch("/" + id, :body => build_body(data.as_parameter), :headers => header)) if data.is_a?(Oneview::Entity::Contact)

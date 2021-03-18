@@ -17,6 +17,7 @@ module Oneview
     
     def initialize(access_token)
       raise NoAccessTokenError if access_token.nil? || access_token.strip == ""
+
       @access_token = access_token
     end
     
@@ -33,17 +34,18 @@ module Oneview
     end
     
     protected
-      def header
-        {"Content-Type" => "application/json", "Accept" => "application/json"}
-      end
-      
-      def build_body(parameters)
-        parameters.merge(:access_token => @access_token).to_json
-      end
-      
-      def parse_response(response)
-        return Oneview::Client::Response.new(response)
-      end
+
+    def header
+      {"Content-Type" => "application/json", "Accept" => "application/json"}
+    end
+    
+    def build_body(parameters)
+      parameters.merge(:access_token => @access_token).to_json
+    end
+    
+    def parse_response(response)
+      return Oneview::Client::Response.new(response)
+    end
     
     class Response
       attr_accessor :status, :payload, :raw_response

@@ -11,11 +11,11 @@ module Oneview
       def as_parameter
         variables = instance_variables.map do |name|
           case name
-            when :@phone
-              ["phone_attributes", instance_variable_get(name).as_parameter]
-            when :@dynamic_fields
-            else 
-              [name.to_s.tr("@", ""), instance_variable_get(name)]
+          when :@phone
+            ["phone_attributes", instance_variable_get(name).as_parameter]
+          when :@dynamic_fields
+          else 
+            [name.to_s.tr("@", ""), instance_variable_get(name)]
           end
         end
         

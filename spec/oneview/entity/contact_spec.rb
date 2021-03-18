@@ -2,11 +2,15 @@ require 'spec_helper'
 
 RSpec.describe Oneview::Entity::Contact do
   describe "as_parameter" do
-    let(:contact_as_parameter) {{"name" => "name", "email" => "email@email.com", "birthday" => "14/10/2014", "city" => "city", "state" => "state",
-      "zip_code" => "12233-444", "phone_attributes" => {"country_code" => "+55", "area_code" => "12", "number" => "998998789"}, 
-      "dynamic_field" => "123"}}
+    let(:contact_as_parameter) do
+      {
+        "name" => "name", "email" => "email@email.com", "birthday" => "14/10/2014", "city" => "city", "state" => "state",
+        "zip_code" => "12233-444", "phone_attributes" => { "country_code" => "+55", "area_code" => "12", "number" => "998998789" },
+        "dynamic_field" => "123"
+      }
+    end
       
-    it "should return the contact as parameter" do
+    it "returns the contact as parameter" do
       contact = Oneview::Entity::Contact.new
       
       contact.name = "name"
